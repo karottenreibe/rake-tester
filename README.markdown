@@ -11,6 +11,7 @@ for automatic compilation of C test suites, e.g. using
 
 *   Automatically compiles and executes test suites of
     arbitrary C testing frameworks
+*   Can batch-execute all suites or selectively run a single suite
 *   Can only compile the tests for your current platform
 *   Thus, no cross compilation of the tests
 *   Support for running the tests with valgrind
