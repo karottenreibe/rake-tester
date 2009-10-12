@@ -66,7 +66,7 @@ module Rake
                         "../../#{@ext_dir}",
                         "/usr/include/ruby-#{RUBY_VERSION}",
                         "/usr/include/ruby-#{RUBY_VERSION}/#{RUBY_PLATFORM}",
-                    ]).join(' -I')
+                    ]).map { |l| '-I' + l }.join(' ')
 
                     # compile the test sources
                     FileList['*.c'].each do |cfile|
@@ -74,8 +74,8 @@ module Rake
                     end
 
                     source_objects = FileList["../#{RUBY_PLATFORM}/#{@name}/#{RUBY_VERSION}/*.o"]
-                    libraries      = (@test_libraries + %w{ruby pthread crypto}).join(' -l')
-                    lib_folders    = (@test_lib_folders + %w{/usr/lib .}).join(' -L')
+                    libraries      = (@test_libraries + %w{ruby pthread crypto}).map { |l| '-l' + l }.join(' ')
+                    lib_folders    = (@test_lib_folders + %w{/usr/lib .}).map { |l| '-L' + l }.join(' ')
 
                     # link the executables
                     FileList['*.o'].each do |ofile|
