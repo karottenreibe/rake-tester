@@ -34,9 +34,9 @@ In the Rakefile:
         # ... confgure as normal
 
         ext.test_files          = FileList['test/c/*']
-        ext.test_includes       = %w{/usr/include/google}
-        ext.test_libraries      = %w{cmockery}
-        ext.test_lib_folders    = %w{/usr/lib}
+        ext.test_includes       << '/usr/include/frood_stuff'
+        ext.test_libraries      << 'zaphods_heads'
+        ext.test_lib_folders    << '/usr/lib/floopy'
     end
 
 Write your tests.

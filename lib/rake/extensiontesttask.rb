@@ -2,25 +2,50 @@ require 'rake/clean'
 require 'rake/extensiontask'
 
 module Rake
+
     class ExtensionTask
+
+        #
+        # The C files to compile.
+        #
         attr_accessor :test_files
+
+        #
+        # The folders where includes for the test files are.
+        #
+        # Default: %w{/usr/include /usr/include/google}
+        #
         attr_accessor :test_includes
 
-        def test_link( library, path )
-            @test_libraries   << library
-            @test_lib_folders << path
-        end
+        #
+        # The libraries to link against.
+        #
+        # Default: %w{cmockery}
+        #
+        attr_accessor :test_libraries
+
+        #
+        # The folders where the libraries are
+        #
+        # Default: %w{/usr/lib}
+        #
+        attr_accessor :test_lib_folders
 
         alias_method :initialize_old, :initialize
 
         def initialize( *args, &block )
             @test_files       = Array.new
-            @test_includes    = Array.new
-            @test_libraries   = Array.new
-            @test_lib_folders = Array.new
+            @test_includes    = %w{/usr/include /usr/include/google}
+            @test_libraries   = %w{cmockery}
+            @test_lib_folders = %w{/usr/lib}
 
             initialize_old(*args, &block)
+            init_test_tasks()
+        end
 
+        private
+
+        def init_test_tasks
             # some stuff we need often later on
             compile_dir   = "#{@tmp_dir}/test"
             compile_task  = "compile:#{@name}:test"
