@@ -19,7 +19,6 @@ for automatic compilation of C test suites, e.g. using
 
 ## Installation ##
 
-    gem install karottenreibe-rake-tester --source http://gems.github.com
     gem install rake-tester
 
 
