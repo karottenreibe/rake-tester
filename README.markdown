@@ -49,7 +49,7 @@ To test one extension:
 
     $ rake test:c:extension
 
-To execute one test file:
+To execute one test suite:
 
     $ rake test:c:extension[test_feature]
 
