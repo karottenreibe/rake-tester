@@ -51,6 +51,7 @@ module Rake
             compile_task  = "compile:#{@name}:test"
             test_task     = "test:c:#{@name}"
             valgrind_task = "test:valgrind:#{@name}"
+            gdb_task      = "test:gdb:#{@name}"
 
             directory compile_dir
 
@@ -87,6 +88,11 @@ module Rake
             desc "Execute valgrind for a #{@name} test"
             task valgrind_task, :test, :needs => [compile_task] do |t,args|
                 sh "valgrind --num-callers=50 --error-limit=no --partial-loads-ok=yes --undef-value-errors=no --leak-check=full #{compile_dir}/#{args.test}"
+            end
+
+            desc "Execute gdb for a #{@name} test"
+            task gdb_task, :test, :needs => [compile_task] do |t,args|
+                sh "gdb #{compile_dir}/#{args.test}"
             end
 
             desc "Test #{@name}"

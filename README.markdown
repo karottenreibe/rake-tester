@@ -14,7 +14,7 @@ for automatic compilation of C test suites, e.g. using
 *   Can batch-execute all suites or selectively run a single suite
 *   Can only compile the tests for your current platform
 *   Thus, no cross compilation of the tests
-*   Support for running the tests with valgrind
+*   Support for running the tests with valgrind or gdb
 
 
 ## Installation ##
@@ -55,6 +55,10 @@ To execute one test suite:
 To use valgrind:
 
     $ rake test:valgrind:extension[test_feature]
+
+To use gdb:
+
+    $ rake test:gdb:extension[test_feature]
 
 
 ## License ##
