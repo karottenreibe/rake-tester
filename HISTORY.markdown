@@ -3,4 +3,5 @@
 *   Initial release
 *   Automatic compilation and execution
 *   Valgind support
+*   GDB support
 
