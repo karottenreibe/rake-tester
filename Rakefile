@@ -17,6 +17,7 @@ jeweler_tasks = Jeweler::Tasks.new do |gem|
 end
 
 Jeweler::RubyforgeTasks.new
+Jeweler::GemcutterTasks.new
 
 
 require 'rake/rdoctask'
