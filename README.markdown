@@ -61,6 +61,12 @@ To use gdb:
     $ rake test:gdb:extension[test_feature]
 
 
+## Examples ##
+
+Check out [Joker][], which user rake-tester in combination
+with [cmockery][]!
+
+
 ## License ##
 
     Copyright (c) 2009 Fabian Streitel
@@ -88,4 +94,5 @@ To use gdb:
 
 [rakecompiler]:     http://github.com/luislavena/rake-compiler      "The rake-compile project"
 [cmockery]:         http://code.google.com/p/cmockery/              "The cmockery C testing framework"
+[joker]:            http://www.github.com/karottenreibe/joker       "Joker -- A wildcard library for Ruby"
 
